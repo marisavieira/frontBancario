@@ -1,0 +1,64 @@
+﻿
+@{
+    ViewBag.Title = "Saque";
+}
+
+<div class="tudo">
+    <!-- ************* menu *************  -->
+    <section class="menu">
+        <p id="nome_usuario"> Bem vindo, Marisa!</p>
+        <img id="img_menu" src="~/Content/imagens/open-menu.png" />
+
+        <div id="modal_configuracao" class="modal">
+            <div class="modal-content">
+                <div id="opc_config">
+                    <img id="img_menu" src="~/Content/imagens/config.png" />
+                    <p> Configuração</p>
+                </div>
+            </div>
+        </div>
+        <script>
+            var modal = document.getElementById("modal_configuracao");
+            var clique = document.getElementById("img_menu");
+            var bnt_fechar = document.getElementsByClassName("img_menu");
+
+            clique.onclick = function () {
+                modal.style.display = "block";
+            }
+
+            bnt_fechar.onclick = function () {
+                modal.style.display = "none";
+            }
+
+            window.onclick = function (event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+        </script>
+    </section>
+
+
+
+    <!-- ************* COMEÇO DO SAQUE *************  -->
+    <section class="classeOperacoes">
+        <div id="header">
+            <p> Saque </p>
+        </div>
+
+        <div class="dados">
+            <div id="nomes">
+                <p class="nomes" id="tipo_conta"> Valor a ser retirado </p>
+            </div>
+
+            <div id="campos">
+                @Html.TextArea("txtValorRetirar", new { id = "valor_retirar", @placeholder = "R$10,00" })
+            </div>
+        </div>
+
+        <button> SACAR </button>
+
+    </section>
+
+</div>
+

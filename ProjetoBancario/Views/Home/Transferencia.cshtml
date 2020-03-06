@@ -1,0 +1,75 @@
+﻿
+@{
+    ViewBag.Title = "Transferência";
+}
+
+<div class="tudo">
+    <!-- ************* menu *************  -->
+    <section class="menu">
+        <p id="nome_usuario"> Bem vindo, Marisa!</p>
+        <img id="img_menu" src="~/Content/imagens/open-menu.png" />
+
+        <div id="modal_configuracao" class="modal">
+            <div class="modal-content">
+                <div id="opc_config">
+                    <img id="img_menu" src="~/Content/imagens/config.png" />
+                    <p> Configuração</p>
+                </div>
+            </div>
+        </div>
+        <script>
+            var modal = document.getElementById("modal_configuracao");
+            var clique = document.getElementById("img_menu");
+            var bnt_fechar = document.getElementsByClassName("img_menu");
+
+            clique.onclick = function () {
+                modal.style.display = "block";
+            }
+
+            bnt_fechar.onclick = function () {
+                modal.style.display = "none";
+            }
+
+            window.onclick = function (event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+        </script>
+    </section>
+
+
+
+    <!-- ************* COMEÇO DA TRANSFERENCIA *************  -->
+    <section class="classeOperacoes">
+        <div id="header">
+            <p> Transferência </p>
+        </div>
+
+        <div class="dados">
+            <div id="nomes">
+                <p class="nomes" id="tipo_conta"> Tipo de Conta </p>
+                <p class="nomes" id="num_conta"> Número da Conta </p>
+                <p class="nomes" id="nome_ben"> Nome Beneficiario </p>
+                <p class="nomes" id="valor"> Valor a ser transferido </p>
+            </div>
+
+            <div id="campos">
+                <select class="caixa-select" id="tipo_conta">
+                    <option value="0">Selecione uma opção</option>
+                    <option value="1"> 01 - Conta Poupança </option>
+                    <option value="2"> 02 - Conta Corrente </option>
+                    <option value="3"> 03 - Conta Universitária </option>
+                </select>
+                @Html.TextArea("txtNumConta", new { id = "num_conta", @placeholder = "0000-000 " })
+                @Html.TextArea("txtNome", new { id = "nome_ben", @placeholder = "Pessoa para quem deseja transmitir " })
+                @Html.TextArea("txtValor", new { id = "valor", @placeholder = "R$0,00 " })
+            </div>
+        </div>
+
+        <button> TRANSFERIR </button>
+
+    </section>
+    
+</div>
+

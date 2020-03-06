@@ -1,0 +1,85 @@
+﻿
+@{
+    ViewBag.Title = "Bem Vindo!";
+}
+
+<div class="tudo">
+    <!-- ************* menu *************  -->
+    <section class="menu">
+        <p id="nome_usuario"> Bem vindo, Marisa!</p>
+        <img id="img_menu" src="~/Content/imagens/open-menu.png" />
+
+        <div id="modal_configuracao" class="modal">
+            <div class="modal-content">
+                <div id="opc_config">
+                    <img id="img_menu" src="~/Content/imagens/config.png" />
+                    <p> Configuração</p>
+                </div>
+            </div>
+        </div>
+        <script>
+            var modal = document.getElementById("modal_configuracao");
+            var clique = document.getElementById("img_menu");
+            var bnt_fechar = document.getElementsByClassName("img_menu");
+
+            clique.onclick = function () {
+                modal.style.display = "block";
+            }
+
+            bnt_fechar.onclick = function () {
+                modal.style.display = "none";
+            }
+
+            window.onclick = function (event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+        </script>
+    </section>
+
+
+
+    <!-- ************* informacao de conta e saldo *************  -->
+    <section class="informacao">
+
+        <div id="conta">
+            <p id="numero_conta"> Conta: 0000-000 </p>
+        </div>
+
+        <div id="saldo">
+            <p id="numero_saldo"> Saldo: R$0,00 </p>
+        </div>
+
+    </section>
+
+
+
+    <!-- ************* operacoes para a conta *************  -->
+    <section class="operacoes">
+        <p id="op"> Operações </p>
+        <div class="quadro_operacoes">
+            <div id="opcao">
+                <img id="img_opc" src="~/Content/imagens/deposit-box.png" />
+                <p> Depósito </p>
+            </div>
+            <div id="opcao">
+                <img id="img_opc" src="~/Content/imagens/atm.png" />
+                <p> Saque </p>
+            </div>
+            <div id="opcao">
+                <img id="img_opc" src="~/Content/imagens/transfer.png" />
+                <p> Transferência </p>
+            </div>
+            <div id="opcao">
+                <img id="img_opc" src="~/Content/imagens/bill.png" />
+                <p> Extrato </p>
+            </div>
+            <div id="opcao">
+                <img id="img_opc" src="~/Content/imagens/transfer.png" />
+                <p> Extorno </p>
+            </div>
+        </div>
+    </section>
+</div>
+
